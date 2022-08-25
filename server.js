@@ -3,12 +3,15 @@ const app = express();
 const cors = require('cors');
 const connectDb = require('./src/database');
 const faker = require('faker');
+const path = require("path");
 
 const User = require('./src/models/user.model');
 
 // configure express to use cors()
 // ------------------------------------------------------------------
 app.use(cors());
+
+app.use(express.static(path.join(_dirname, "client", "build")));
 
 app.get('/users', async (req, res) => {
   const users = await User.find();
@@ -39,6 +42,10 @@ app.get('/', (req, res) => {
 
 // start server
 // -----------------------
+app.get("*", (req, res) => {
+  res.sendFile(path.join(_dirname, "client", "build", "index.html"));
+});
+
 app.listen(8080, function () {
   console.log('Running on port 8080! - http://localhost:8080');
   connectDb().then(() => console.log('MongoDb connected'));
