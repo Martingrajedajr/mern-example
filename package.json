@@ -14,11 +14,13 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^5.4.0",
-    "mongoose": "^5.12.0"
+    "mongoose": "^5.12.0",
+    "serve": "^14.0.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
   "engines": {
     "node": "16.15.1"
- }}
+  }
+}

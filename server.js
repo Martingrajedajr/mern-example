@@ -6,6 +6,7 @@ const faker = require('faker');
 const path = require("path");
 
 const User = require('./models/user.model');
+const { model } = require('mongoose');
 
 // configure express to use cors()
 // ------------------------------------------------------------------
@@ -46,7 +47,9 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
+
+
 app.listen(8080, function () {
   console.log('Running on port 8080! - http://localhost:8080');
   connectDb().then(() => console.log('MongoDb connected'));
-});
+})
