@@ -47,9 +47,9 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
+const port = process.env.PORT || 8000;
 
-
-app.listen(8080, function () {
-  console.log('Running on port 8080! - http://localhost:8080');
+server.listen(port, () => {
+  console.log('Running on port' + port);
   connectDb().then(() => console.log('MongoDb connected'));
 })
